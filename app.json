@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "deering-hub-1ap",
+    "slug": "snack-ce2aaba5-f714-4e1f-b15b-c559f3794866",
+    "scheme": "deeringhub",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/securityscreen.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./DeeringLogo.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": "Centralised learning tool",
+    "plugins": [
+      "expo-font",
+      "expo-dev-client"
+    ]
+  }
+}
