@@ -3,6 +3,7 @@
     "name": "deering-hub-1ap",
     "slug": "snack-ce2aaba5-f714-4e1f-b15b-c559f3794866",
     "scheme": "deeringhub",
+    "newArchEnabled": true, 
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -27,7 +28,8 @@
     "description": "Centralised learning tool",
     "plugins": [
       "expo-font",
-      "expo-dev-client"
+      "expo-dev-client",
+      "expo-secure-store"
     ]
   }
 }
