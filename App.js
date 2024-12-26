@@ -40,16 +40,24 @@ import SecureScreen from './assets/securityscreen.png';
 
 
 
-//prefetching to make the images potentially load faster 
-Image.prefetch(homepage);
-Image.prefetch(abtpage);
-Image.prefetch(menupage);
-Image.prefetch(LangCS);
-Image.prefetch(instructioons);
-Image.prefetch(instructioons1);
-Image.prefetch(instructioons2);
-Image.prefetch(TipsCSS);
-Image.prefetch(SecureScreen);
+// Replace the prefetch calls with proper error handling
+const prefetchImages = async () => {
+  try {
+    await Promise.all([
+      Image.prefetch(Image.resolveAssetSource(homepage).uri),
+      Image.prefetch(Image.resolveAssetSource(abtpage).uri),
+      Image.prefetch(Image.resolveAssetSource(menupage).uri),
+      Image.prefetch(Image.resolveAssetSource(LangCS).uri),
+      Image.prefetch(Image.resolveAssetSource(instructioons).uri),
+      Image.prefetch(Image.resolveAssetSource(instructioons1).uri),
+      Image.prefetch(Image.resolveAssetSource(instructioons2).uri),
+      Image.prefetch(Image.resolveAssetSource(TipsCSS).uri),
+      Image.prefetch(Image.resolveAssetSource(SecureScreen).uri),
+    ]);
+  } catch (error) {
+    console.warn('Image prefetch error:', error);
+  }
+};
 
 
 
@@ -1438,6 +1446,10 @@ const App = () => {
   const [loaded] = useFonts({
     Rumblesport: require('./assets/fonts/RumblesportathleticcapsBold-ZxDJ.otf')
   })
+
+  useEffect(() => {
+    prefetchImages();
+  }, []);
 
   return (
     <NavigationContainer>
