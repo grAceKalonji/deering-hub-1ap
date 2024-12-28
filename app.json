@@ -1,9 +1,9 @@
 {
   "expo": {
     "name": "deering-hub-1ap",
-    "slug": "snack-ce2aaba5-f714-4e1f-b15b-c559f3794866",
+    "slug": "deering-hub-1ap",
     "scheme": "deeringhub",
-    "newArchEnabled": true, 
+    "newArchEnabled": true,
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,10 +17,7 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./DeeringLogo.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "com.deering.deeringhub"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,6 +27,11 @@
       "expo-font",
       "expo-dev-client",
       "expo-secure-store"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ca7903e9-546e-4c21-bc46-a272b3dd5f43"
+      }
+    }
   }
 }
