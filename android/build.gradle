@@ -41,4 +41,7 @@ allprojects {
         mavenCentral()
         maven { url 'https://www.jitpack.io' }
     }
+    
+    // Add this to skip javadoc tasks for all projects
+    tasks.withType(Javadoc).all { enabled = false }
 }
