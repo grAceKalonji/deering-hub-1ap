@@ -3,7 +3,7 @@
 buildscript {
     ext {
         buildToolsVersion = findProperty('android.buildToolsVersion') ?: '34.0.0'
-        minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '23')
+        minSdkVersion = Integer.parseInt(findProperty('android.minSdkVersion') ?: '24')
         compileSdkVersion = Integer.parseInt(findProperty('android.compileSdkVersion') ?: '34')
         targetSdkVersion = Integer.parseInt(findProperty('android.targetSdkVersion') ?: '34')
         kotlinVersion = findProperty('android.kotlinVersion') ?: '1.9.23'
@@ -14,12 +14,13 @@ buildscript {
     repositories {
         google() 
         mavenCentral()
+        maven { url "https://groovy.jfrog.io/artifactory/libs-release-local/" }
     }
     dependencies {
         classpath('com.android.tools.build:gradle:8.1.0')
         classpath('com.facebook.react:react-native-gradle-plugin')
         classpath('org.jetbrains.kotlin:kotlin-gradle-plugin')
-        
+        classpath('org.codehaus.groovy:groovy-json:3.0.9')
     }
 }
 

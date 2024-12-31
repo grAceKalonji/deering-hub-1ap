@@ -116,6 +116,10 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        manifestPlaceholders = [
+            auth0Domain: "your-domain.auth0.com",
+            auth0Scheme: "demo"
+        ]
     }
     signingConfigs {
         debug {
@@ -136,13 +140,30 @@ android {
             shrinkResources (findProperty('android.enableShrinkResourcesInReleaseBuilds')?.toBoolean() ?: false)
             minifyEnabled true
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-            crunchPngs (findProperty('android.enablePngCrunchInReleaseBuilds')?.toBoolean() ?: true)
+            crunchPngs false
         }
     }
     packagingOptions {
         jniLibs {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)
         }
+        pickFirst '**/*.so'
+        pickFirst '**/armeabi-v7a/*.so'
+        pickFirst '**/x86/*.so'
+        pickFirst '**/arm64-v8a/*.so'
+        pickFirst '**/x86_64/*.so'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/*.kotlin_module'
+    }
+    aaptOptions {
+        cruncherEnabled = false
+        noCompress "png", "webp", "jpg"
     }
 }
 
@@ -169,5 +190,7 @@ android {
 dependencies {
     implementation project(':expo')
     implementation project(':expo-modules-core')
+    implementation("com.facebook.react:react-android")
+    implementation("com.facebook.react:hermes-android")
     // other dependencies...
 }
